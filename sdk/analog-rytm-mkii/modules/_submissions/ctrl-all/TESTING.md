@@ -14,6 +14,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build CAH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `7c09272dc47d3a3c51d759d931d739f81c7893e6ec4eea894164c6b0166f1f16`, main OS `72b62487…78f6`.
 - Build CT74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `c4a1fc0b88d46abb115454f774538fb6d30529cadf2e315cc5881f8ad724567e`,
   main OS `da53bc86f5ac4f8da00226c56eb059fa7b49a88a6d56571032d0abb9cd848a1c`. Emulator only.
 
@@ -47,6 +49,13 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran CAH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+Holding TRK and turning FRQ on the FILTER page set FRQ to 0 on BD, SD and CH together; with
+the FX track selected only the FX track changed and BD stayed put (screens). The SYNTH and TYP
+steps were not repeated alone. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -93,6 +102,5 @@ Static reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - Long sessions, project save and reload, and a power cycle with this build were not recorded.

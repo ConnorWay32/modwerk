@@ -102,14 +102,14 @@
     "hardware": {
       "model": "Analog Rytm MKII",
       "release": "1.74",
-      "testedOn": "2026-10-20",
+      "testedOn": "2026-10-24",
       "tester": "Iced-Cream",
       "durationMinutes": null,
-      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, ctrl-all 1.2 passed its four tests (FILTER FRQ, SYNTH knobs across BD HARD and SD HARD, FILTER TYP, FX track and trig key) in R8K4 (2026-10-19), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20).",
+      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, ctrl-all 1.2 passed its four tests (FILTER FRQ, SYNTH knobs across BD HARD and SD HARD, FILTER TYP, FX track and trig key) in R8K4 (2026-10-19), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24) TRK + FRQ moved several tracks together and the FX track changed alone, and a four-minute play showed no freeze or dropout.",
       "limitations": [
         "Duration was not recorded.",
         "Tested builds: R8K4, .syx 4f54db92ed3955be1be32123f6cb51c8ebd081936dead60130111f46fba329b8; C3A4, .syx 04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951. Firmware was not read back from the device.",
-        "Only tested beside other rytm2_mods ports. C3A4's core is core-ar2 0.3 as built before elekloader #153; the released 0.3 has not run on a unit with this module yet."
+        "Only tested beside other rytm2_mods ports. SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules."
       ]
     },
     "verifiedBy": null

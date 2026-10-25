@@ -13,6 +13,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build VHH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `4bebbd5d7ba1860f168ee34c35212f58e67b525628a91b6f7d76fd5e5a101ca8`, main OS `ae1c680f…20aa`.
 - Tested build C3N4 (C3A4 without euclid-accents): `.syx` `a74435c28591ec0f2d143b0629a4fd5b6f37ab85e0b3e4618b000698dd5ea9f5`.
 - Build VH74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `f4f01cf1003a5e9e5aa401cca1e49e289a2f99007f8f140f36db0846bdbe8b1b`,
   main OS `2ef50b8c4ceea0869ea7bc6ff95cd7d86a789d0527a37c07b9b4520a9b242ee0`. Emulator only.
@@ -50,6 +52,13 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran VHH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+FUNC + VEL on the TRIG page read RND and N 64 was kept after release. On CP with equal-velocity
+trigs, N 64 gave a bar-to-bar spread of 2.99 dB per step against 0.36 dB at N 0, the
+measurement floor. Persistence was not repeated alone. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -91,6 +100,5 @@ drawing. Static reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - Kit and pattern transfer over SysEx, and loading a project saved with this module into a build without it.

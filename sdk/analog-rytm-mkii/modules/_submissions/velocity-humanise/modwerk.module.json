@@ -104,11 +104,11 @@
       "testedOn": "2026-10-25",
       "tester": "Iced-Cream",
       "durationMinutes": null,
-      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, velocity-humanise 1.1 passed test steps 1 to 3 (FUNC + VEL reads RND, N = 32 varies the hits and N = 0 does not, N kept through save and power-cycle) with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4, with N kept through a power-cycle without SAVE PROJECT, and step 4 (the same without euclid-accents) on C3N4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) N 10 measurably varied CP's equal-velocity hits where N 0 did not, and N was kept through a power cycle without SAVE PROJECT.",
+      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, velocity-humanise 1.1 passed test steps 1 to 3 (FUNC + VEL reads RND, N = 32 varies the hits and N = 0 does not, N kept through save and power-cycle) with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4, with N kept through a power-cycle without SAVE PROJECT, and step 4 (the same without euclid-accents) on C3N4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) N 10 measurably varied CP's equal-velocity hits where N 0 did not, and N was kept through a power cycle without SAVE PROJECT. Alone on VHH4 (released core-ar2 0.3 and this module only, 2026-10-25) N 64 spread CP's equal-velocity hits by about 3 dB where N 0 did not.",
       "limitations": [
         "Duration was not recorded.",
         "Tested builds: C3A4, .syx 04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951; C3N4, .syx a74435c28591ec0f2d143b0629a4fd5b6f37ab85e0b3e4618b000698dd5ea9f5. Firmware was not read back from the device.",
-        "Only tested beside other rytm2_mods ports. SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules."
+        "SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules. VHH4 (alone with the released core-ar2 0.3, 2026-10-25, .syx 4bebbd5d7ba1860f168ee34c35212f58e67b525628a91b6f7d76fd5e5a101ca8) carried the same test layer."
       ]
     },
     "verifiedBy": null

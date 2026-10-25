@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "reportedOn": "2026-10-24",
-  "source": "Iced-Cream's own tests on their unit: the R8T2 run of the port's test steps and the C3A4 unit test; and the SXH4 bench runs on the same unit (2026-10-24 and 2026-10-25)",
+  "reportedOn": "2026-10-25",
+  "source": "Iced-Cream's own tests on their unit: the R8T2 run of the port's test steps and the C3A4 unit test; and the SXH4 bench runs on the same unit (2026-10-24 and 2026-10-25); and the solo bench run of SLH4 on the same unit (2026-10-25)",
   "reporter": "Iced-Cream",
-  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) slice-loop's test passes: on an empty sound track, FUNC + CHRO > SLICE LOOP shows LOOP SLICED and places 16 trigs, and choosing it again shows TRACK NOT EMPTY. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's. On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24) SLICE LOOP showed LOOP SLICED and then TRACK NOT EMPTY, and a four-minute play showed no freeze or dropout.",
+  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) slice-loop's test passes: on an empty sound track, FUNC + CHRO > SLICE LOOP shows LOOP SLICED and places 16 trigs, and choosing it again shows TRACK NOT EMPTY. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's. On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24) SLICE LOOP showed LOOP SLICED and then TRACK NOT EMPTY, and a four-minute play showed no freeze or dropout. Alone on SLH4 (released core-ar2 0.3 and this module only, 2026-10-25) SLICE LOOP showed LOOP SLICED and then TRACK NOT EMPTY without changing the pattern again.",
   "status": "hardware-tested-author-reported",
-  "scope": "slice-loop 1.0 beside other rytm2_mods ports, never alone. SXH4 ran it with the released core-ar2 0.3 and the other five Modwerk 1.74 submissions.",
+  "scope": "slice-loop 1.0 beside other rytm2_mods ports. SXH4 ran it with the released core-ar2 0.3 and the other five Modwerk 1.74 submissions. SLH4 ran it alone with the released core-ar2 0.3.",
   "modules": [
     {
       "id": "slice-loop",
@@ -17,6 +17,23 @@
     }
   ],
   "builds": [
+    {
+      "label": "SLH4",
+      "testedOn": "2026-10-25",
+      "os": "1.74",
+      "syxSha256": "10ef52bfdda5f24f1d0adf0f22055ff6fe4cc7acf711d9275d7943369205c95e",
+      "mainSha256": "6ecc66c794a4ed217f870d9fa9b7b7b1b123ce2af8c7ed5bb3d45bb68a2bbcbe",
+      "packageSha256": {
+        "slice-loop-1.0-os1.74.elemod": "b1b8f51bd12c8077817ff870d8fd0e20df92b641ea0413b6846141011ff01cf9",
+        "core-ar2-0.3.elemod": "6b97dfb3d65ca7d9d292e4ed61dd845e43b2d4f6dc71e7e7d235f27abc4b3e58",
+        "analoghealth-1.2.elemod": "a86f07c53a375fa3d6e6398a452806217984b6fd35ff8a66d4b40885992787b6"
+      },
+      "content": "The released core-ar2 0.3 and this module's rytm2_mods v1.2 release object as the only module, plus the remote-control test layer (analoghealth 1.2, no site shared with core or the module). Driven over USB by a scripted bench in a ~T test project; outputs recorded over USB audio; stock 1.74 restored after the run.",
+      "results": [
+        "Alone: SLICE LOOP showed LOOP SLICED, then TRACK NOT EMPTY with the pattern unchanged (screens, pattern memory).",
+        "No freeze or dropout on any output."
+      ]
+    },
     {
       "label": "SXH4",
       "testedOn": "2026-10-24",
@@ -61,14 +78,15 @@
   ],
   "coverageDetails": {
     "deviceDetails": "Analog Rytm MKII",
-    "testDate": "2026-10-24",
+    "testDate": "2026-10-25",
     "duration": null,
     "durationMinutes": null,
     "individualTestResults": [
       "SLICE LOOP places 16 trigs on an empty track",
       "TRACK NOT EMPTY on a second try",
       "SXH4: LOOP SLICED, then TRACK NOT EMPTY",
-      "SXH4: four-minute play, no freeze or dropout"
+      "SXH4: four-minute play, no freeze or dropout",
+      "Alone (SLH4): LOOP SLICED, then TRACK NOT EMPTY"
     ]
   },
   "contextNote": "Main OS hashes are the builds', not read back from the device. SXH4 links the released core-ar2 0.3 (6b97dfb3…, with #153) that Modwerk links; C3A4's core was built before #153.",

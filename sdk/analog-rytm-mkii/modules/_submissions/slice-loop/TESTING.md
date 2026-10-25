@@ -15,6 +15,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build SLH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `10ef52bfdda5f24f1d0adf0f22055ff6fe4cc7acf711d9275d7943369205c95e`, main OS `6ecc66c7…bcbe`.
 - Build SL74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `f6563d2e440273b6885ccaeabab7d5b3f6297d1e43fe103deb54eeb31cd0bc65`,
   main OS `0f5738561f1a40dd6b78baee3740dc7d8394d1674330f0b512bcc60927fcb36d`. Emulator only.
 
@@ -45,6 +47,14 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran SLH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+On an empty sound track FUNC + CHRO > SLICE LOOP showed LOOP SLICED, and choosing it again
+showed TRACK NOT EMPTY and left the pattern unchanged (screens and the pattern's memory). The
+first choice changed the pattern in a regular sixteen-step layout, which was not decoded
+field by field, and the loop was not heard with a real sample. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -94,6 +104,5 @@ paths. Static reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - NEEDS 16 STEPS and ONLY ON SOUND TRACKS were not recorded on 1.74 hardware; the sliced loop's sound with a real sample, and a power cycle with this build, were not recorded.

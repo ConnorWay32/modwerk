@@ -696,7 +696,32 @@
         "url": "https://github.com/Iced-Cream/analog-emu",
         "note": "rytm-emu fork that boots stock Analog Four MKII OS 1.56 to its main UI, headless or in a window, with the analog voices stubbed; used for the core's emulator checks before each hardware run. No firmware hosted."
       }
-    ]
+    ],
+    "sdk": {
+      "platform": "elemod",
+      "modules": "sdk/analog-four-mkii/modules",
+      "catalog": null,
+      "guide": "sdk/machines/analog-four-mkii/README.md",
+      "core": {
+        "version": "0.2",
+        "path": "sdk/analog-four-mkii/core-profile"
+      },
+      "toolchain": "m68k-linux-gnu (or m68k-elf) GCC and binutils for ColdFire, and elekloader's builder: core-a4 0.2 from the owner's exact OS 1.56 .syx.",
+      "budgets": [
+        {
+          "name": "Shared mod memory",
+          "unit": "bytes",
+          "value": 131072,
+          "note": "DDR 0x47BE0000–0x47C00000, shared by the core and every mod; a fill of the area and its neighbouring gaps read back intact on a unit through normal use and a power cycle (elekloader ddr-canary-a4)."
+        },
+        {
+          "name": "Core image",
+          "unit": "bytes",
+          "value": 8956,
+          "note": "Core 0.2 build (elekloader f02be99): 8,764 bytes .run plus 192 bytes .bss in the shared area, and an 88-byte .boot copier; the link check measures each selected module set."
+        }
+      ]
+    }
   },
   {
     "schemaVersion": 1,

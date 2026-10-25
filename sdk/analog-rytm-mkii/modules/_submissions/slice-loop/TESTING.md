@@ -11,6 +11,10 @@
   `94c8b8c4f3f537132b7ee689ad1221591186f14dc605a420cdefe3df804e3c39`.
 - Tested build C3A4 (OS 1.74, core-ar2 0.3 before #153 + all eleven rytm2_mods v1.2 ports): `.syx`
   `04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951`, main OS `fc871476…d529`.
+- Tested build SXH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + the six rytm2_mods v1.2
+  objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
+  `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
+  Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
 - Build SL74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `f6563d2e440273b6885ccaeabab7d5b3f6297d1e43fe103deb54eeb31cd0bc65`,
   main OS `0f5738561f1a40dd6b78baee3740dc7d8394d1674330f0b512bcc60927fcb36d`. Emulator only.
 
@@ -26,6 +30,21 @@ It passed. On 2026-10-20, in C3A4 (core-ar2 0.3 and all eleven v1.2 ports, inclu
 this module's release object `b1b8f51b…1cf9`), each mod's own test passed again.
 Relinking C3A4's core and v1.2's eleven release objects on stock 1.74 gives C3A4's main OS
 byte for byte. Duration was not recorded. See [the hardware report](evidence/hardware-testing.json).
+
+On 2026-10-24 and 2026-10-25 the same unit ran SXH4, the released core-ar2 0.3 with the six
+Analog Rytm MKII modules submitted together (Ctrl All, Env Reset Amp, Slice Loop, Main RMS,
+Euclid Accents, Velocity Humanise) and a remote-control test layer that shares no site with
+them. A scripted bench drove it over USB in a `~T` test project, took screenshots and recorded
+every output over USB audio, then restored stock 1.74.
+
+For this module: on an empty sound track FUNC + CHRO > SLICE LOOP showed LOOP SLICED, and
+choosing it again showed TRACK NOT EMPTY (screens). The 16 trigs were not counted separately,
+and the loop was not heard with a real sample.
+
+In a four-minute play with samples, delay and reverb sends and knob turns, nothing froze and
+no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
+the same core and test layer but none of the six modules, so they are not this module's. Results are in the
+[hardware report](evidence/hardware-testing.json).
 
 ## Source build comparison
 
@@ -75,6 +94,6 @@ paths. Static reading, not a measurement.
 
 ## Not tested
 
-- A build with the released core-ar2 0.3 (with elekloader #153) on a unit, and the module alone on a unit.
+- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - NEEDS 16 STEPS and ONLY ON SOUND TRACKS were not recorded on 1.74 hardware; the sliced loop's sound with a real sample, and a power cycle with this build, were not recorded.

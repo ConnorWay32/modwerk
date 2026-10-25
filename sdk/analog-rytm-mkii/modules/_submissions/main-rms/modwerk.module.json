@@ -103,11 +103,11 @@
       "testedOn": "2026-10-25",
       "tester": "Iced-Cream",
       "durationMinutes": null,
-      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, main-rms 1.0 passed its test (FX track AMP page: playing a loud pattern inverts the VOL label, which clears when the output gets quieter) in R8T2 (2026-10-18), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) VOL stayed plain while the main output stayed below the threshold, and with the main output at -3.4 dBFS RMS VOL inverted while playing and cleared about 4 s after STOP.",
+      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, main-rms 1.0 passed its test (FX track AMP page: playing a loud pattern inverts the VOL label, which clears when the output gets quieter) in R8T2 (2026-10-18), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) VOL stayed plain while the main output stayed below the threshold, and with the main output at -3.4 dBFS RMS VOL inverted while playing and cleared about 4 s after STOP. Alone on MRH4 (released core-ar2 0.3 and this module only, 2026-10-25) VOL inverted with the main output above the threshold and cleared within 4.4 s of stop.",
       "limitations": [
         "Duration was not recorded.",
         "Tested builds: C3A4, .syx 04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951; R8T2, .syx 94c8b8c4f3f537132b7ee689ad1221591186f14dc605a420cdefe3df804e3c39. Firmware was not read back from the device.",
-        "Only tested beside other rytm2_mods ports. SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules."
+        "SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules. MRH4 (alone with the released core-ar2 0.3, 2026-10-25, .syx f3e304ea7454cd1b53801b19cb92b9e71add055bd26e430219328dc56b05606a) carried the same test layer."
       ]
     },
     "verifiedBy": null

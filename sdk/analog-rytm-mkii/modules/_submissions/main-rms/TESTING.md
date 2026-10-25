@@ -15,6 +15,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build MRH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `f3e304ea7454cd1b53801b19cb92b9e71add055bd26e430219328dc56b05606a`, main OS `d8aa3353…14ac`.
 - Build MR74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `f4d7e60de44e77658a05747886d33945dba25d4ea0cfcdb028244e0ecaabf6c0`,
   main OS `70767ae4626140dc98244c4f29e1b09f8dbe53da534820dd5663dd23e6460053`. Emulator only.
 
@@ -48,6 +50,13 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran MRH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+With the main output at -3.4 dBFS (300 ms RMS, every window above the -18 dBFS threshold),
+VOL on the FX track's AMP page was inverted in every shot while playing and 0.4 s and 1.4 s
+after STOP while the tails rang, and plain again at 4.4 s and 8.4 s. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -91,6 +100,5 @@ reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - The threshold against a calibrated level.

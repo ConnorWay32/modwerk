@@ -4,7 +4,7 @@
   "name": "Ctrl All",
   "version": "1.2.0",
   "machine": "analog-rytm-mkii",
-  "category": "playback",
+  "category": "system",
   "exclusive": false,
   "author": {
     "github": "Iced-Cream",

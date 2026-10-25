@@ -9,6 +9,10 @@
 - Stock OS 1.74: `.syx` `cb0f99d6…e123`, main OS `34cd0c4d…1f3b`.
 - Tested build C3A4 (OS 1.74, core-ar2 0.3 before #153 + all eleven rytm2_mods v1.2 ports): `.syx`
   `04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951`, main OS `fc871476…d529`.
+- Tested build SXH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + the six rytm2_mods v1.2
+  objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
+  `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
+  Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
 - Tested build C3N4 (C3A4 without euclid-accents): `.syx` `a74435c28591ec0f2d143b0629a4fd5b6f37ab85e0b3e4618b000698dd5ea9f5`.
 - Build VH74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `f4f01cf1003a5e9e5aa401cca1e49e289a2f99007f8f140f36db0846bdbe8b1b`,
   main OS `2ef50b8c4ceea0869ea7bc6ff95cd7d86a789d0527a37c07b9b4520a9b242ee0`. Emulator only.
@@ -29,6 +33,23 @@ Steps 1 to 3 passed on C3A4, and N was also kept through a power-cycle without S
 PROJECT (core 0.3 saves track fields on stock's per-part saves). Step 4 passed on C3N4.
 Relinking C3A4's core and v1.2's eleven release objects on stock 1.74 gives C3A4's main OS
 byte for byte. Duration was not recorded. See [the hardware report](evidence/hardware-testing.json).
+
+On 2026-10-24 and 2026-10-25 the same unit ran SXH4, the released core-ar2 0.3 with the six
+Analog Rytm MKII modules submitted together (Ctrl All, Env Reset Amp, Slice Loop, Main RMS,
+Euclid Accents, Velocity Humanise) and a remote-control test layer that shares no site with
+them. A scripted bench drove it over USB in a `~T` test project, took screenshots and recorded
+every output over USB audio, then restored stock 1.74.
+
+For this module: FUNC + VEL on the TRIG page reads RND. On CP with 16 equal-velocity trigs,
+N 10 gave a bar-to-bar spread of 0.63 dB per step against 0.35 dB at N 0, the measurement
+floor, as a velocity spread of about 10 should. The remote turn landed on N 10, so a larger N
+was not measured. N set fully right was kept through a power cycle without SAVE PROJECT
+(the dial position matched; that view shows no number).
+
+In a four-minute play with samples, delay and reverb sends and knob turns, nothing froze and
+no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
+the same core and test layer but none of the six modules, so they are not this module's. Results are in the
+[hardware report](evidence/hardware-testing.json).
 
 ## Source build comparison
 
@@ -70,6 +91,6 @@ drawing. Static reading, not a measurement.
 
 ## Not tested
 
-- A build with the released core-ar2 0.3 (with elekloader #153) on a unit, and the module alone on a unit.
+- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - Kit and pattern transfer over SysEx, and loading a project saved with this module into a build without it.

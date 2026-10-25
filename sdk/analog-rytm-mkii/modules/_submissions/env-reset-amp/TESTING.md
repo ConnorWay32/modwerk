@@ -14,6 +14,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build ERH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `98bb53a618952898d7657e5ead43727b5080d1a81c5fb1680c0ede85f7e02870`, main OS `adc93d7a…e828`.
 - Build ER74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `48db5cf7368c517a0559028468cb05f48be699ff1efd338cc2ef821cf61fd809`,
   main OS `771e5951c7cd56e43e8848b6ea6479ead21eb17ff5a5475a62c1af88b40c0487`. Emulator only.
 
@@ -45,6 +47,13 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran ERH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+On LT's own output with quick trigs, AMP dropped each hit to silence (-71.4 dBFS) and its
+attack rose again over about 86 ms; with OFF the level only dipped to -31.0 dBFS and was back
+within 9 ms. Both agree with the SXH4 run. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -98,6 +107,5 @@ the audio path. Static reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - AMP+FILT on its own was not recorded as a separate step; saving and reloading a sound with AMP set, and a power cycle with this build, were not recorded.

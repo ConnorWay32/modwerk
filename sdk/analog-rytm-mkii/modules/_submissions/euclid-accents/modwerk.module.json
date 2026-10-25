@@ -4,7 +4,7 @@
   "name": "Euclid Accents",
   "version": "1.1.0",
   "machine": "analog-rytm-mkii",
-  "category": "playback",
+  "category": "machines",
   "exclusive": false,
   "author": {
     "github": "Iced-Cream",

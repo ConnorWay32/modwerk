@@ -12,6 +12,8 @@
   objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
   `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
   Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
+- Tested build EAH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + this module alone + the same
+  remote-control test layer): `.syx` `04f4d21ca270ecfb182a801818ebbc8d4086e2d03ba059a7dc9ef404755ed5ca`, main OS `e97c5587…a827`.
 - Build EA74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `48697da941188e56dadd59f1344fd2becc2069296c0b50d7106e47850ac5efc8`,
   main OS `acb72de4548d63d850a2f8e97391c010afcfde0f5087abe9e836d800822b3bb4`. Emulator only.
 
@@ -48,6 +50,14 @@ In a four-minute play with samples, delay and reverb sends and knob turns, nothi
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
 the same core and test layer but none of the six modules, so they are not this module's. Results are in the
 [hardware report](evidence/hardware-testing.json).
+
+On 2026-10-25 the same unit ran EAH4: the released core-ar2 0.3 with this module as the only
+module, plus the same remote-control test layer. The bench flashed the six solo builds one after
+another from stock and restored stock 1.74 at the end; every flash finished without a stall.
+OP reached SUB\*, AND\* and XOR\*. At XOR\* and at SUB\* only the grid trigs played (the
+euclid-only steps held just the previous hit's decay), and grid trigs on euclid hits peaked
+2.0 to 2.3 dB above the others, measured on BD's output. Persistence and the bake were not
+repeated alone. No output froze or dropped out.
 
 ## Source build comparison
 
@@ -89,6 +99,5 @@ UI edits, drawing and the euclid bake. Static reading, not a measurement.
 
 ## Not tested
 
-- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - Kit and pattern transfer over SysEx, and loading a project saved with this module into a build without it.

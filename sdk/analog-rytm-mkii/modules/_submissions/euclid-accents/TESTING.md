@@ -8,6 +8,10 @@
 - Stock OS 1.74: `.syx` `cb0f99d6…e123`, main OS `34cd0c4d…1f3b`.
 - Tested build C3A4 (OS 1.74, core-ar2 0.3 before #153 + all eleven rytm2_mods v1.2 ports): `.syx`
   `04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951`, main OS `fc871476…d529`.
+- Tested build SXH4 (OS 1.74, released core-ar2 0.3 `6b97dfb3…3e58` + the six rytm2_mods v1.2
+  objects submitted to Modwerk + a remote-control test layer that shares no site with them): `.syx`
+  `e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000`, main OS `0ef422bf…8fb8`.
+  Without the test layer the same inputs give SX74, `.syx` `2a352718…4371`.
 - Build EA74 (OS 1.74, released core-ar2 0.3 + this module): `.syx` `48697da941188e56dadd59f1344fd2becc2069296c0b50d7106e47850ac5efc8`,
   main OS `acb72de4548d63d850a2f8e97391c010afcfde0f5087abe9e836d800822b3bb4`. Emulator only.
 
@@ -27,6 +31,23 @@ All four passed, and OP also kept its accent value through a power-cycle without
 PROJECT (core 0.3 saves track fields on stock's per-part saves). Relinking C3A4's core and
 v1.2's eleven release objects on stock 1.74 gives C3A4's main OS byte for byte. Duration
 was not recorded. See [the hardware report](evidence/hardware-testing.json).
+
+On 2026-10-24 and 2026-10-25 the same unit ran SXH4, the released core-ar2 0.3 with the six
+Analog Rytm MKII modules submitted together (Ctrl All, Env Reset Amp, Slice Loop, Main RMS,
+Euclid Accents, Velocity Humanise) and a remote-control test layer that shares no site with
+them. A scripted bench drove it over USB in a `~T` test project, took screenshots and recorded
+every output over USB audio, then restored stock 1.74.
+
+For this module: OP turned past SUB to the accent values (SUB\* with its mark). With BD grid
+trigs on steps 1, 2, 4, 5, 7 and 10 and PL1 6 (hits on 1, 4, 7, 9, 12, 15), at XOR\* and at
+SUB\* only the six grid trigs played, and those on hits (1, 4, 7) peaked 2.1 to 2.4 dB above
+the others, measured on BD's output and checked in the pattern's memory. After a power cycle
+without SAVE PROJECT, OP still showed SUB\*. The bake (FUNC + EUC off) was not repeated.
+
+In a four-minute play with samples, delay and reverb sends and knob turns, nothing froze and
+no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with
+the same core and test layer but none of the six modules, so they are not this module's. Results are in the
+[hardware report](evidence/hardware-testing.json).
 
 ## Source build comparison
 
@@ -68,6 +89,6 @@ UI edits, drawing and the euclid bake. Static reading, not a measurement.
 
 ## Not tested
 
-- A build with the released core-ar2 0.3 (with elekloader #153) on a unit, and the module alone on a unit.
+- The module alone on a unit: every hardware run had other rytm2_mods ports beside it.
 - Other modules beside it, except rytm2_mods' own ports.
 - Kit and pattern transfer over SysEx, and loading a project saved with this module into a build without it.

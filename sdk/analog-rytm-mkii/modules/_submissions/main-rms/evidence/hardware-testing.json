@@ -3,7 +3,7 @@
   "reportedOn": "2026-10-25",
   "source": "Iced-Cream's own tests on their unit: the R8T2 run of the port's test steps and the C3A4 unit test; and the SXH4 bench runs on the same unit (2026-10-24 and 2026-10-25)",
   "reporter": "Iced-Cream",
-  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) main-rms's test passes: with the FX track's AMP page open, a loud pattern inverts the VOL label, and it clears when the output gets quieter. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's. On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) VOL stayed plain while the main output stayed below the threshold; the inversion itself was not recaptured on that build.",
+  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) main-rms's test passes: with the FX track's AMP page open, a loud pattern inverts the VOL label, and it clears when the output gets quieter. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's. On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-24/25) VOL stayed plain while the main output stayed below the threshold, and with the main output at -3.4 dBFS RMS VOL inverted while playing and cleared about 4 s after STOP.",
   "status": "hardware-tested-author-reported",
   "scope": "main-rms 1.0 beside other rytm2_mods ports, never alone. SXH4 ran it with the released core-ar2 0.3 and the other five Modwerk 1.74 submissions.",
   "modules": [
@@ -29,7 +29,7 @@
       },
       "content": "The released core-ar2 0.3 and rytm2_mods v1.2's release objects for the six Modwerk 1.74 submissions, plus a remote-control test layer (three sites, none shared with core or the modules). Without the test layer the same inputs give SX74 (2a352718de044cdba51a2b8a3a064ef126d79ab54f24ac7a7662f6c686e64371). Driven over USB by a scripted bench in a ~T test project; outputs recorded over USB audio; stock 1.74 restored after each run.",
       "results": [
-        "SXH4: VOL stayed plain with the main output at most -26.5 dBFS RMS (no false trigger); the inversion was not recaptured.",
+        "SXH4: VOL stayed plain with the main output at most -26.5 dBFS RMS (no false trigger); with the main output at -3.4 dBFS RMS it inverted in all six shots while playing and was plain again 4.4 s after STOP.",
         "Four minutes of play with samples, delay and reverb sends and knob turns: no freeze, gap or level dip on any output; clicks on the main mix also appear on the same core and test layer without the modules."
       ]
     },
@@ -67,7 +67,7 @@
     "individualTestResults": [
       "VOL label inverts while the output is loud",
       "Label clears when the output gets quieter",
-      "SXH4: no false trigger below the threshold (inversion not recaptured)",
+      "SXH4: no false trigger below the threshold; inverts at -3.4 dBFS RMS and clears after stop",
       "SXH4: four-minute play, no freeze or dropout"
     ]
   },

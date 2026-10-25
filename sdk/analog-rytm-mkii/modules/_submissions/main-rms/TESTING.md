@@ -38,10 +38,11 @@ Euclid Accents, Velocity Humanise) and a remote-control test layer that shares n
 them. A scripted bench drove it over USB in a `~T` test project, took screenshots and recorded
 every output over USB audio, then restored stock 1.74.
 
-For this module: on the FX track's AMP page VOL stayed plain in every shot, while the main
-output peaked at -26.5 dBFS (300 ms RMS), below the -18 dBFS threshold. That confirms no
-false trigger on this build; the inversion itself was not recaptured on SXH4, because the
-test pattern never got loud enough.
+For this module: in the first runs the test pattern kept the main output at most -26.5 dBFS
+(300 ms RMS), below the -18 dBFS threshold, and VOL stayed plain in every shot: no false
+trigger. A short check on 2026-10-25 drove the main output to -3.4 dBFS RMS (peaks at 0 dBFS):
+VOL was inverted in all six shots while it played, still inverted 0.4 s and 1.4 s after STOP
+while the tails rang out, and plain again 4.4 s after STOP.
 
 In a four-minute play with samples, delay and reverb sends and knob turns, nothing froze and
 no output had a gap or level dip. Clicks flagged on the main mix also appear on a build with

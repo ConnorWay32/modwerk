@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "reportedOn": "2026-10-20",
-  "source": "Iced-Cream's own tests on their unit: the R8T2 run of the port's test steps and the C3A4 unit test",
+  "reportedOn": "2026-10-25",
+  "source": "Iced-Cream's own tests on their unit: the R8T2 run of the port's test steps and the C3A4 unit test; and the SXH4 bench runs on the same unit (2026-10-24 and 2026-10-25)",
   "reporter": "Iced-Cream",
-  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) env-reset-amp's test passes: with SOUND SETTINGS > ENV RESET stepped to AMP, AMP ATK about 40 and a long DEC, the attack is heard on every quick hit of the pad. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's.",
+  "statement": "Hardware, OS 1.74: in R8T2 (2026-10-18) env-reset-amp's test passes: with SOUND SETTINGS > ENV RESET stepped to AMP, AMP ATK about 40 and a long DEC, the attack is heard on every quick hit of the pad. In C3A4 (core-ar2 0.3 and all eleven rytm2_mods v1.2 ports, 2026-10-20) each mod's own test passed, including this one's. On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-25) ENV RESET AMP restarted LT's amp envelope from silence on every quick hit (attack about 93 ms), where OFF carried it on, measured on LT's output.",
   "status": "hardware-tested-author-reported",
-  "scope": "env-reset-amp 1.0 beside other rytm2_mods ports, never alone. No build with the released core-ar2 0.3 has run on a unit with it yet.",
+  "scope": "env-reset-amp 1.0 beside other rytm2_mods ports, never alone. SXH4 ran it with the released core-ar2 0.3 and the other five Modwerk 1.74 submissions.",
   "modules": [
     {
       "id": "env-reset-amp",
@@ -17,6 +17,22 @@
     }
   ],
   "builds": [
+    {
+      "label": "SXH4",
+      "testedOn": "2026-10-25",
+      "os": "1.74",
+      "syxSha256": "e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000",
+      "mainSha256": "0ef422bf64c7c9257ae9f5b04b0733324f74d5db40b19dcc63e86e49ef288fb8",
+      "packageSha256": {
+        "env-reset-amp-1.0-os1.74.elemod": "881bcfeda180d548c63ed9eded2b79bc4387300a8638b6e9800754dddccc40d1",
+        "core-ar2-0.3.elemod": "6b97dfb3d65ca7d9d292e4ed61dd845e43b2d4f6dc71e7e7d235f27abc4b3e58"
+      },
+      "content": "The released core-ar2 0.3 and rytm2_mods v1.2's release objects for the six Modwerk 1.74 submissions, plus a remote-control test layer (three sites, none shared with core or the modules). Without the test layer the same inputs give SX74 (2a352718de044cdba51a2b8a3a064ef126d79ab54f24ac7a7662f6c686e64371). Driven over USB by a scripted bench in a ~T test project; outputs recorded over USB audio; stock 1.74 restored after each run.",
+      "results": [
+        "SXH4: with AMP each LT hit restarts from silence (-72 dBFS) with a 93 ms attack; with OFF it dips only to -31 dBFS.",
+        "Four minutes of play with samples, delay and reverb sends and knob turns: no freeze, gap or level dip on any output; clicks on the main mix also appear on the same core and test layer without the modules."
+      ]
+    },
     {
       "label": "C3A4",
       "testedOn": "2026-10-20",
@@ -45,15 +61,17 @@
   ],
   "coverageDetails": {
     "deviceDetails": "Analog Rytm MKII",
-    "testDate": "2026-10-20",
+    "testDate": "2026-10-25",
     "duration": null,
     "durationMinutes": null,
     "individualTestResults": [
       "ENV RESET reaches AMP",
-      "AMP ATK heard on every hit with AMP set"
+      "AMP ATK heard on every hit with AMP set",
+      "SXH4: AMP restarts the amp envelope on every hit; OFF carries on (measured)",
+      "SXH4: four-minute play, no freeze or dropout"
     ]
   },
-  "contextNote": "Main OS hashes are the builds', not read back from the device. Modwerk links the released core-ar2 0.3 (6b97dfb3…, with #153), which differs from C3A4's core.",
+  "contextNote": "Main OS hashes are the builds', not read back from the device. SXH4 links the released core-ar2 0.3 (6b97dfb3…, with #153) that Modwerk links; C3A4's core was built before #153.",
   "modwerkPipelineQualified": false,
   "authorGithub": "Iced-Cream"
 }

@@ -100,14 +100,14 @@
     "hardware": {
       "model": "Analog Rytm MKII",
       "release": "1.74",
-      "testedOn": "2026-10-20",
+      "testedOn": "2026-10-25",
       "tester": "Iced-Cream",
       "durationMinutes": null,
-      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, env-reset-amp 1.0 passed its test (ENV RESET set to AMP, AMP ATK about 40 and a long DEC: the attack is heard on every quick hit) in R8T2 (2026-10-18), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20).",
+      "summary": "Iced-Cream reports that on an Analog Rytm MKII with OS 1.74, env-reset-amp 1.0 passed its test (ENV RESET set to AMP, AMP ATK about 40 and a long DEC: the attack is heard on every quick hit) in R8T2 (2026-10-18), and its own test again with core-ar2 0.3 and all eleven rytm2_mods ports in C3A4 (2026-10-20). On SXH4 (released core-ar2 0.3 with the other five Modwerk 1.74 submissions, 2026-10-25) ENV RESET AMP restarted LT's amp envelope from silence on every quick hit (attack about 93 ms), where OFF carried it on, measured on LT's output.",
       "limitations": [
         "Duration was not recorded.",
         "Tested builds: R8T2, .syx 94c8b8c4f3f537132b7ee689ad1221591186f14dc605a420cdefe3df804e3c39; C3A4, .syx 04d987ced36850eef5eb5cd1215d411edf621a5af94f980525ab561c9108f951. Firmware was not read back from the device.",
-        "Only tested beside other rytm2_mods ports. C3A4's core is core-ar2 0.3 as built before elekloader #153; the released 0.3 has not run on a unit with this module yet."
+        "Only tested beside other rytm2_mods ports. SXH4 (the released core-ar2 0.3, 2026-10-24/25, .syx e4d01a6aec250bd2af7743c9f8b0e9c560d805b52564932dddc41d872e1c5000) also carried a remote-control test layer that shares no site with core or the modules."
       ]
     },
     "verifiedBy": null

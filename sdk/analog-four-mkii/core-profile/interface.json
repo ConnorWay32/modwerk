@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "machine": "analog-four-mkii",
   "interface": "0.2",
-  "status": "Upstream elekloader core-a4 0.2 for Analog Four MKII OS 1.56 (merged in irpina/elekloader#180): core-ar2's hook bus and mod storage at the A4's addresses, plus core-ar2 0.4's parameter pages and the A4's own page-key views. No release tag yet; Modwerk's linker has no A4 profile until the first module.",
+  "status": "Upstream elekloader core-a4 0.2 for Analog Four MKII OS 1.56 (merged in irpina/elekloader#180): core-ar2's hook bus and mod storage at the A4's addresses, plus core-ar2 0.4's parameter pages and the A4's own page-key views. No release tag yet; Modwerk's linker links it byte for byte as elekloader does.",
   "events": [
     {
       "name": "ev_tick",

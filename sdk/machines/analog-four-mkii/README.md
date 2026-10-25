@@ -2,7 +2,7 @@
 
 **Platform:** elemod · **OS:** 1.56 · **Core:** elekloader core-a4 0.2 · **Modules:** [`sdk/analog-four-mkii/modules/`](../../analog-four-mkii/modules/) · **Status:** research
 
-The Analog Four MKII runs on the Analog Rytm MKII's platform, a ColdFire MCF5441x: its OS entry, bootstrap loader and UI loop are the Rytm's, instruction for instruction apart from addresses. Its core is elekloader's core-a4, which builds the Digitakt mk1's `core.s`, `settings.s` and `render.s` with the A4's addresses as core-ar2 does for the Rytm, and adds mod storage and parameter pages. The core hooks the shared sites and calls every subscribed mod's handler, in order, from tables the linker builds, so any set of mods that fits the budgets combines. Every event below has run on a unit. There is no library module yet, and Modwerk's linker has no A4 profile until the first one, so mods build with elekloader's builder for now.
+The Analog Four MKII runs on the Analog Rytm MKII's platform, a ColdFire MCF5441x: its OS entry, bootstrap loader and UI loop are the Rytm's, instruction for instruction apart from addresses. Its core is elekloader's core-a4, which builds the Digitakt mk1's `core.s`, `settings.s` and `render.s` with the A4's addresses as core-ar2 does for the Rytm, and adds mod storage and parameter pages. The core hooks the shared sites and calls every subscribed mod's handler, in order, from tables the linker builds, so any set of mods that fits the budgets combines. Every event below has run on a unit. Modwerk's linker has an A4 profile (`src/engine/elektron/elemod.ts`): on the owner's stock 1.56 file it links core-a4 0.2 alone, with each of elekloader's five A4 examples and with three of them together to the same main OS image and storage lockfile as `elekloader.patch`. There is no library module yet, and the browser builds nothing for the A4 until one exists.
 
 ## Create a mod
 
@@ -79,13 +79,15 @@ python -m elekloader.patch --stock Analog-Four_MKII_OS1.56.syx \
     --out my-build.syx --version XX01
 ```
 
+Modwerk packs the main OS more densely than elekloader, so a build's .syx is smaller than elekloader's for the same image (893,717 stored bytes against 974,236 for core alone); both depack to the same image. The in-place depack margin narrows with it: about 478 KB for core with three mods, against stock's 540 KB.
+
 ## Flash and recover
 
 Send the .syx with Elektron Transfer over USB (MIDI IN and OUT set to the device) and press YES on the unit; it restarts by itself. Restoring the stock .syx the same way returns the unit to stock. If a custom OS will not start, hold FUNC while powering on to open the STARTUP menu, choose TRIG 4 (OS UPGRADE), then send the stock .syx over MIDI DIN; recovery mode does not use USB, so you need a MIDI DIN sender. Local parsing and link checks do not guarantee hardware safety.
 
 ## Status
 
-core-a4 0.1 and 0.2 are in elekloader (irpina/elekloader#154 and #180). On a unit, on OS 1.56: HC56 (core and hooks-check-a4) ran every event; SC56 (store-check-a4) kept every storage field through saves, loads, power cycles and a Transfer round trip; CA56 (ddr-canary-a4) left the mods' area intact; PA56 (core 0.2 and pages-check-a4) passed the parameter page checks; the stock file restored the unit over MIDI DIN. Before a first module enters the library, the A4 needs a linker profile in `src/engine/elektron/elemod.ts` and a pinned core release.
+core-a4 0.1 and 0.2 are in elekloader (irpina/elekloader#154 and #180). On a unit, on OS 1.56: HC56 (core and hooks-check-a4) ran every event; SC56 (store-check-a4) kept every storage field through saves, loads, power cycles and a Transfer round trip; CA56 (ddr-canary-a4) left the mods' area intact; PA56 (core 0.2 and pages-check-a4) passed the parameter page checks; the stock file restored the unit over MIDI DIN. Before a first module enters the library, the A4 needs a pinned core-a4 release (elekloader has none yet) and the browser's build preview.
 
 ## Credits
 
